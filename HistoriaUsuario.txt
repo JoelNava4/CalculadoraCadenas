@@ -1,0 +1,9 @@
+Como usuario de una calculadora de cadena, 
+quiero ingresar una cadena de números y obtener la suma de esos números, 
+para poder realizar cálculos rápidos sin preocuparme por los delimitadores.
+
+Criterios de Confirmación:
+
+- Si la cadena contiene delimitadores válidos (comas, guion o un delimitador personalizado), la calculadora debe devolver la suma de los números.
+- La calculadora debe ignorar números mayores a 1000 y considerar múltiples delimitadores personalizados de cualquier longitud.
+- Si la cadena está vacía o contiene solo delimitadores sin números, debe devolver 0.
