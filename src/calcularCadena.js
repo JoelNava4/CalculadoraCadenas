@@ -20,6 +20,7 @@ export function calcularCadena(cadena) {
     const regex = new RegExp(`[${delimitadores.join('')}]`);
   
     let listaNumeros = numeros.split(regex).map(Number);
+    listaNumeros = listaNumeros.filter(num => num <= 1000);
   
     return listaNumeros.reduce((acc, num) => acc + num, 0);
   }
