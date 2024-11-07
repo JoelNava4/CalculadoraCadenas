@@ -16,4 +16,12 @@ describe('Calculadora de cadena', () => {
     it('debe manejar el delimitador "-" y devolver la suma', () => {
         expect(calcularCadena("1-2-3")).toBe(6);
     });
+
+    it('debe manejar un delimitador personalizado y devolver la suma', () => {
+        expect(calcularCadena("//[;]\n6;7;4")).toBe(17);
+    });
+
+    it('debe manejar delimitadores de varios caracteres', () => {
+        expect(calcularCadena("//[***]\n1***2***3")).toBe(6);
+    });
 });

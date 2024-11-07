@@ -3,9 +3,24 @@ export function calcularCadena(cadena) {
     let delimitadores = [',', '-']; 
     let numeros = cadena;
   
+    if (cadena.startsWith("//")) {
+      const singleDelimMatch = cadena.match(/^\/\/\[(.*?)\]\n/);
+      if (singleDelimMatch) {
+        delimitadores = [singleDelimMatch[1]]; 
+        numeros = cadena.slice(singleDelimMatch[0].length);
+      }
+  
+      const multiDelimMatch = cadena.match(/^\/\/\[(.*?)\]\n/);
+      if (multiDelimMatch) {
+        delimitadores = multiDelimMatch[1].split('][').map(delim => delim.replace('[', '').replace(']', ''));
+        numeros = cadena.slice(multiDelimMatch[0].length);
+      }
+    }
+  
     const regex = new RegExp(`[${delimitadores.join('')}]`);
   
-    let listaNumeros = numeros.split(regex).map(Number);  
+    let listaNumeros = numeros.split(regex).map(Number);
+  
     return listaNumeros.reduce((acc, num) => acc + num, 0);
   }
   
